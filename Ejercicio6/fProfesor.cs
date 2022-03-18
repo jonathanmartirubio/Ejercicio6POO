@@ -99,5 +99,44 @@ namespace Ejercicio6
         {
             Profesores.OrdenAlfabetico();
         }
+
+        private void bAnyadirAsignatura_Click(object sender, EventArgs e)
+        {
+            string nombre, asignatura;
+            bool encontrado;
+
+            nombre = Interaction.InputBox("Introduce el nombre:", "Añadir asignatura a un profesor");
+            asignatura = Interaction.InputBox("Introduce la asignatura:", "Añadir asignatura a un profesor");
+
+            encontrado = Profesores.AnyadirAsignatura(nombre, asignatura);
+            if (encontrado)
+                MessageBox.Show("Se ha añadido correctamente la Asignatura.");
+            else
+                MessageBox.Show("No se ha encontrado el Profesor.");
+
+        }
+
+        private void bEliminarAsignaturas_Click(object sender, EventArgs e)
+        {
+            string nombre;
+            bool encontrado;
+
+            nombre = Interaction.InputBox("Introduce el nombre", "Eliminar Notas");
+            encontrado = Profesores.EliminarAsignaturas(nombre);
+
+            if (encontrado)
+            {
+                MessageBox.Show("Asignaturas eliminadas correctamente.");
+            }
+            else
+            {
+                MessageBox.Show("No se ha encontrado el Profesor.");
+            }
+        }
+
+        private void bMostrarPorAsignatura_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

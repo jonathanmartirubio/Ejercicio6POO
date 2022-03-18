@@ -116,7 +116,41 @@ namespace Ejercicio6
                         mLista[j] = aux;
                     }
                 }
+        }
 
+        public bool AnyadirAsignatura(string nombre, string asignatura)
+        {
+            int pos;
+            tProfesor profesor;
+            bool encontrado = false;
+
+            pos = BuscarProfesor(nombre);
+            if (pos >= 0)
+            {
+                profesor = mLista[pos];
+                profesor.AnyadirAsignatura(asignatura);
+                encontrado = true;
+            }
+            return encontrado;
+        }
+
+        public bool EliminarAsignaturas(string nombre)
+        {
+            bool encontrado;
+            int pos;
+            tProfesor profesor;
+
+            encontrado = false;
+            pos = BuscarProfesor(nombre);
+
+            if (pos >= 0)
+            {
+                profesor = mLista[pos];
+                profesor.EliminarAsignaturas();
+                encontrado = true;
+            }
+
+            return encontrado;
         }
     }
 }

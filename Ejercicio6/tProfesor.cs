@@ -45,6 +45,11 @@ namespace Ejercicio6
             get { return mCodigoAsignatura; }
         }
 
+        public void AnyadirAsignatura(string asignatura)
+        {
+            mAsignaturas.Add(asignatura);
+        }
+
         private string MostrarAsignaturas()
         {
             string texto;
@@ -64,6 +69,11 @@ namespace Ejercicio6
             return texto;
         }
 
+        public void EliminarAsignaturas()
+        {
+            mAsignaturas.Clear();
+        }
+
         public string MostrarDatos()
         {
             string texto;
@@ -78,7 +88,7 @@ namespace Ejercicio6
             }
             else
             {
-                texto += "No es tutor de ninguna asignatura."
+                texto += "No es tutor de ninguna asignatura.";
             }
 
             return texto;
