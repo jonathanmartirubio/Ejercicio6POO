@@ -134,6 +134,24 @@ namespace Ejercicio6
             return encontrado;
         }
 
+        public string MostrarProfesoresPorAsignatura(string asignatura)
+        {
+            string texto;
+            texto = "";
+            tProfesor profesor;
+
+            for (int i = 0; i < mLista.Count; i++)
+            {
+                profesor = mLista[i];
+                if (profesor.ImparteAsignatura(asignatura) == asignatura)
+                {
+                    texto += profesor.MostrarDatos();
+                }
+            }
+
+            return texto;
+        }
+
         public bool EliminarAsignaturas(string nombre)
         {
             bool encontrado;

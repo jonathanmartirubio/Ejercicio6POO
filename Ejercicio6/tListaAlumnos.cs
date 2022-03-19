@@ -15,7 +15,7 @@ namespace Ejercicio6
             mLista = new List<tAlumno>();
         }
 
-        public void AnyadirAlumno(string nombre, string dni, string telf, string codigo)
+        public void AnyadirAlumno(string nombre, string dni, string telf, int codigo)
         {
             tAlumno alumno;
 
@@ -100,6 +100,25 @@ namespace Ejercicio6
                     }
                 }
 
+        }
+
+        public string MostrarAlumnosPorCurso(int codigo)
+        {
+            string texto;
+            tAlumno alumno;
+
+            texto = "";
+
+            for (int i = 0; i < mLista.Count; i++)
+            {
+                alumno = mLista[i];
+                if (codigo == alumno.CodigoCurso)
+                {
+                    texto += alumno.MostrarDatos();
+                }
+            }
+
+            return texto;
         }
 
         public string MostrarAlumno(string nombre, ref bool encontrado)

@@ -15,7 +15,7 @@ namespace Ejercicio6
             mLista = new List<tCurso>();
         }
 
-        public void AnyadirCurso(string nombre, string codigo)
+        public void AnyadirCurso(string nombre, int codigo)
         {
             tCurso curso;
 
@@ -27,7 +27,7 @@ namespace Ejercicio6
             mLista.Add(curso);
         }
 
-        public bool EliminarCurso(string codigo)
+        public bool EliminarCurso(int codigo)
         {
             int pos;
             bool encontrado = false;
@@ -57,7 +57,23 @@ namespace Ejercicio6
             return texto;
         }
 
-        private int BuscarCurso(string codigo)
+        public bool ExisteCurso(int codigo)
+        {
+            bool existe;
+            int pos;
+
+            existe = false;
+            pos = BuscarCurso(codigo);
+
+            if (pos >= 0)
+            {
+                existe = true;
+            }
+
+            return existe;
+        }
+
+        private int BuscarCurso(int codigo)
         {
             int pos = -1, i;
             bool encontrado = false;

@@ -12,7 +12,7 @@ namespace Ejercicio6
         private string mDni;
         private string mTelf;
         private List<double> mNotas;
-        private string mCodigoCurso;
+        private int mCodigoCurso;
 
         public tAlumno()
         {
@@ -40,7 +40,7 @@ namespace Ejercicio6
             get { return mTelf; }
         }
 
-        public string CodigoCurso
+        public int CodigoCurso
         {
             set { mCodigoCurso = value; }
             get { return mCodigoCurso; }

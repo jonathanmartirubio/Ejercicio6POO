@@ -19,24 +19,25 @@ namespace Ejercicio6
         }
 
         public tListadeCursos Cursos;
+        public tListaAlumnos Alumnos;
 
         private void bAnyadirCurso_Click(object sender, EventArgs e)
         {
             string nombre;
-            string codigo;
+            int codigo;
 
             nombre = Interaction.InputBox("Introduce el nombre del curso:", "Añadir Curso");
-            codigo = Interaction.InputBox("Introduce el código del curso:", "Añadir Curso");
+            codigo = int.Parse(Interaction.InputBox("Introduce el código del curso:", "Añadir Curso"));
 
             Cursos.AnyadirCurso(nombre, codigo);
         }
 
         private void bEliminarCurso_Click(object sender, EventArgs e)
         {
-            string codigo;
+            int codigo;
             bool correcto;
 
-            codigo = Interaction.InputBox("Introduce el código del curso", "Eliminar Curso");
+            codigo = int.Parse(Interaction.InputBox("Introduce el código del curso", "Eliminar Curso"));
             correcto = Cursos.EliminarCurso(codigo);
 
             if (correcto)
@@ -60,7 +61,12 @@ namespace Ejercicio6
 
         private void bMostrarAlumnosCurso_Click(object sender, EventArgs e)
         {
+            string texto;
+            int codigo;
+            codigo = int.Parse(Interaction.InputBox("Introduce el código del curso:", "Mostrar Alumnos por Curso"));
+            texto = Alumnos.MostrarAlumnosPorCurso(codigo);
 
+            MessageBox.Show(texto);
         }
     }
 }

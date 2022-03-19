@@ -19,18 +19,27 @@ namespace Ejercicio6
         }
 
         public tListaAlumnos Alumnos;
+        public tListadeCursos Cursos;
 
         private void bAnyadirAlumno_Click(object sender, EventArgs e)
         {
             string nombre, dni, telf;
             int codigo;
+            bool existecurso;
 
             nombre = Interaction.InputBox("Introduce el nombre:", "Añadir Alumno");
             dni = Interaction.InputBox("Introduce el DNI:", "Añadir Alumno");
             telf = Interaction.InputBox("Introduce el teléfono:", "Añadir Alumno");
             codigo = int.Parse(Interaction.InputBox("Introduce el código del curso:", "Añadir Alumno"));
-
-            Alumnos.AnyadirAlumno(nombre, dni, telf, codigo);
+            existecurso = Cursos.ExisteCurso(codigo);
+            if (!existecurso)
+            {
+                MessageBox.Show("El curso introducido no existe. Introduzca uno válido o cree uno nuevo.");
+            }
+            else
+            {
+                Alumnos.AnyadirAlumno(nombre, dni, telf, codigo);
+            }
         }
 
         private void bEliminarAlumno_Click(object sender, EventArgs e)
@@ -86,7 +95,12 @@ namespace Ejercicio6
 
         private void bMostrarPorCurso_Click(object sender, EventArgs e)
         {
+            string texto;
+            int codigo;
+            codigo = int.Parse(Interaction.InputBox("Introduce el código del curso:", "Mostrar Alumnos por Curso"));
+            texto = Alumnos.MostrarAlumnosPorCurso(codigo);
 
+            MessageBox.Show(texto);
         }
 
         private void bAnyadirNota_Click(object sender, EventArgs e)

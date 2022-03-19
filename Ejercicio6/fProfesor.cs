@@ -136,7 +136,14 @@ namespace Ejercicio6
 
         private void bMostrarPorAsignatura_Click(object sender, EventArgs e)
         {
+            string texto;
+            string asignatura;
 
+            asignatura = Interaction.InputBox("Introduce la asignatura:", "Mostrar Profesores de una Asignatura");
+
+            texto = Profesores.MostrarProfesoresPorAsignatura(asignatura);
+
+            MessageBox.Show(texto);
         }
     }
 }

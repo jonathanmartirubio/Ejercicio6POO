@@ -6,14 +6,22 @@ using System.Threading.Tasks;
 
 namespace Ejercicio6
 {
-    class tProfesor
+    public class tProfesor
     {
         private string mNombre;
         private string mDni;
         private string mTelf;
         private List<string> mAsignaturas;
         private bool mTutor;
-        private string mCodigoAsignatura;
+        private string mCodigoCurso;
+
+        public tProfesor()
+        {
+            mNombre = "";
+            mDni = "";
+            mTelf = "";
+            mAsignaturas = new List<string>();
+        }
 
         public string Nombre
         {
@@ -41,13 +49,29 @@ namespace Ejercicio6
 
         public string CodigoAsignatura
         {
-            set { mCodigoAsignatura = value; }
-            get { return mCodigoAsignatura; }
+            set { mCodigoCurso = value; }
+            get { return mCodigoCurso; }
         }
 
         public void AnyadirAsignatura(string asignatura)
         {
             mAsignaturas.Add(asignatura);
+        }
+
+        public string ImparteAsignatura(string asignatura)
+        {
+            string texto;
+            texto = "";
+
+            for (int i = 0; i < mAsignaturas.Count; i++)
+            {
+                if (mAsignaturas[i] == asignatura)
+                {
+                    texto = asignatura;
+                }
+            }
+
+            return texto;
         }
 
         private string MostrarAsignaturas()
@@ -84,7 +108,7 @@ namespace Ejercicio6
             texto += "Asignaturas: " + MostrarAsignaturas() + "\n";
             if (mTutor)
             {
-                texto += "Tutor de: " + mCodigoAsignatura + "\n";
+                texto += "Tutor de: " + mCodigoCurso + "\n";
             }
             else
             {

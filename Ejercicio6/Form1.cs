@@ -27,6 +27,7 @@ namespace Ejercicio6
             fCurso fCur = new fCurso();
 
             fCur.Cursos = Cursos;
+            fCur.Alumnos = Alumnos;
             fCur.ShowDialog();
         }
 
@@ -35,6 +36,7 @@ namespace Ejercicio6
             fAlumno fAlu = new fAlumno();
 
             fAlu.Alumnos = Alumnos;
+            fAlu.Cursos = Cursos;
             fAlu.ShowDialog();
         }
 
