@@ -15,7 +15,7 @@ namespace Ejercicio6
             mLista = new List<tAlumno>();
         }
 
-        public void AnyadirAlumno(string nombre, string dni, string telf, int codigo)
+        public void AnyadirAlumno(string nombre, string dni, string telf, string codigo)
         {
             tAlumno alumno;
 

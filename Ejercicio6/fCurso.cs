@@ -23,20 +23,20 @@ namespace Ejercicio6
         private void bAnyadirCurso_Click(object sender, EventArgs e)
         {
             string nombre;
-            int codigo;
+            string codigo;
 
             nombre = Interaction.InputBox("Introduce el nombre del curso:", "Añadir Curso");
-            codigo = int.Parse(Interaction.InputBox("Introduce el código del curso:", "Añadir Curso"));
+            codigo = Interaction.InputBox("Introduce el código del curso:", "Añadir Curso");
 
             Cursos.AnyadirCurso(nombre, codigo);
         }
 
         private void bEliminarCurso_Click(object sender, EventArgs e)
         {
-            int codigo;
+            string codigo;
             bool correcto;
 
-            codigo = int.Parse(Interaction.InputBox("Introduce el código del curso", "Eliminar Curso"));
+            codigo = Interaction.InputBox("Introduce el código del curso", "Eliminar Curso");
             correcto = Cursos.EliminarCurso(codigo);
 
             if (correcto)

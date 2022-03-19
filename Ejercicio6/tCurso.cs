@@ -8,16 +8,16 @@ namespace Ejercicio6
 {
     class tCurso
     {
-        private int mCodigo;
+        private string mCodigo;
         private string mNombre;
 
         public tCurso()
         {
             mNombre = "";
-            mCodigo = 0;
+            mCodigo = "";
         }
 
-        public int Codigo
+        public string Codigo
         {
             get { return mCodigo; }
             set { mCodigo = value; }
