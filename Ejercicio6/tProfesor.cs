@@ -58,20 +58,20 @@ namespace Ejercicio6
             mAsignaturas.Add(asignatura);
         }
 
-        public string ImparteAsignatura(string asignatura)
+        public bool ImparteAsignatura(string asignatura)
         {
-            string texto;
-            texto = "";
+            bool imparte;
+            imparte = false;
 
             for (int i = 0; i < mAsignaturas.Count; i++)
             {
                 if (mAsignaturas[i] == asignatura)
                 {
-                    texto = asignatura;
+                    imparte = true;
                 }
             }
 
-            return texto;
+            return imparte;
         }
 
         private string MostrarAsignaturas()

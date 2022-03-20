@@ -137,15 +137,24 @@ namespace Ejercicio6
         public string MostrarProfesoresPorAsignatura(string asignatura)
         {
             string texto;
-            texto = "";
+            bool correcto;
             tProfesor profesor;
+
+            texto = "";
+            profesor = mLista[0];
+            correcto = profesor.ImparteAsignatura(asignatura);
 
             for (int i = 0; i < mLista.Count; i++)
             {
                 profesor = mLista[i];
-                if (profesor.ImparteAsignatura(asignatura) == asignatura)
+                
+                if (correcto)
                 {
                     texto += profesor.MostrarDatos();
+                }
+                else
+                {
+                    texto += "Ningún profesor imparte esa asignatura.";
                 }
             }
 
