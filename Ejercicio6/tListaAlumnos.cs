@@ -105,20 +105,54 @@ namespace Ejercicio6
         public string MostrarAlumnosPorCurso(int codigo)
         {
             string texto;
+            bool hayalumnos;
             tAlumno alumno;
 
             texto = "";
+            hayalumnos = AlumnosEnCurso(codigo);
+            if (mLista.Count > 0)
+            {
+                for (int i = 0; i < mLista.Count; i++)
+                {
+                    alumno = mLista[i];
+                    if (hayalumnos)
+                    {
+                        texto += alumno.MostrarDatos();
+                    }
+                    else
+                    {
+                        texto += "El curso introducido no tiene alumnos matriculados.";
+                    }
+                }
+            }
+            else
+            {
+                texto += "No existen alumnos.";
+            }
+
+
+            return texto;
+        }
+
+        private bool AlumnosEnCurso(int codigo)
+        {
+            bool hayalumnos;
+            tAlumno alumno;
+
+            hayalumnos = false;
 
             for (int i = 0; i < mLista.Count; i++)
             {
                 alumno = mLista[i];
+
                 if (codigo == alumno.CodigoCurso)
                 {
-                    texto += alumno.MostrarDatos();
+                    hayalumnos = true;
                 }
+
             }
 
-            return texto;
+            return hayalumnos;
         }
 
         public string MostrarAlumno(string nombre, ref bool encontrado)
