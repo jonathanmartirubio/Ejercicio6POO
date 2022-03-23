@@ -93,6 +93,20 @@ namespace Ejercicio6
             mNotas.Clear();
         }
 
+        public bool TieneNotas()
+        {
+            bool tienenotas;
+
+            tienenotas = false;
+
+            if (mNotas.Count > 0)
+            {
+                tienenotas = true;
+            }
+
+            return tienenotas;
+        }
+
         public double NotaMedia()
         {
             double media;

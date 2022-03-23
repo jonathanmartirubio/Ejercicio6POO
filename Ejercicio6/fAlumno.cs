@@ -132,19 +132,38 @@ namespace Ejercicio6
         private void bEliminarNotas_Click(object sender, EventArgs e)
         {
             string nombre;
-            bool correcto;
+            bool correcto, tienenotas, existe;
 
             nombre = Interaction.InputBox("Introduce el nombre", "Eliminar Notas");
-            correcto = Alumnos.EliminarNotas(nombre);
+            existe = Alumnos.ExisteAlumno(nombre);
 
-            if (correcto)
+            if (existe)
             {
-                MessageBox.Show("Notas eliminadas correctamente.");
+                tienenotas = Alumnos.TieneNotas(nombre);
+
+                if (tienenotas)
+                {
+                    correcto = Alumnos.EliminarNotas(nombre);
+                    if (correcto)
+                    {
+                        MessageBox.Show("Notas eliminadas correctamente.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se ha encontrado el Alumno.");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("El alumno no tiene notas.");
+                }
             }
             else
             {
-                MessageBox.Show("No se ha encontrado el Alumno.");
+                MessageBox.Show("No existe el alumno introducido.");
             }
+            
+            
         }
 
         private void bAlumnosMediaAprobado_Click(object sender, EventArgs e)

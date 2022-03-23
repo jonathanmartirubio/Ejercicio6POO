@@ -173,6 +173,22 @@ namespace Ejercicio6
             return texto;
         }
 
+        public bool ExisteAlumno(string nombre)
+        {
+            bool existe;
+            int pos;
+
+            existe = false;
+            pos = BuscarAlumno(nombre);
+
+            if (pos >= 0)
+            {
+                existe = true;
+            }
+
+            return existe;
+        }
+
         public bool AnyadirNota(string nombre, double nota)
         {
             int pos;
@@ -208,6 +224,19 @@ namespace Ejercicio6
             }
 
             return encontrado;
+        }
+
+        public bool TieneNotas(string nombre)
+        {
+            bool tienenotas;
+            tAlumno alumno;
+            int pos;
+
+            pos = BuscarAlumno(nombre);
+            alumno = mLista[pos];
+            tienenotas = alumno.TieneNotas();
+
+            return tienenotas;
         }
 
         public string MostrarAlumnosMediaAprobado()
