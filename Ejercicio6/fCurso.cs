@@ -62,11 +62,22 @@ namespace Ejercicio6
         private void bMostrarAlumnosCurso_Click(object sender, EventArgs e)
         {
             string texto;
+            bool existecurso;
             int codigo;
             codigo = int.Parse(Interaction.InputBox("Introduce el código del curso:", "Mostrar Alumnos por Curso"));
-            texto = Alumnos.MostrarAlumnosPorCurso(codigo);
+            existecurso = Cursos.ExisteCurso(codigo);
 
-            MessageBox.Show(texto);
+            if (existecurso)
+            {
+                texto = Alumnos.MostrarAlumnosPorCurso(codigo);
+                MessageBox.Show(texto);
+            }
+            else
+            {
+                texto = "No existe el curso introducido.";
+                MessageBox.Show(texto);
+            }
+            
         }
     }
 }
