@@ -15,7 +15,7 @@ namespace Ejercicio6
             mLista = new List<tProfesor>();
         }
 
-        public void AnyadirProfesor(string nombre, string dni, string telf, bool tutor, string asignatura)
+        public void AnyadirProfesor(string nombre, string dni, string telf, bool tutor, int curso)
         {
             tProfesor profesor;
             profesor = new tProfesor();
@@ -24,7 +24,7 @@ namespace Ejercicio6
             profesor.Dni = dni;
             profesor.Telf = telf;
             profesor.Tutor = tutor;
-            profesor.CodigoAsignatura = asignatura;
+            profesor.CodigoCurso = curso;
 
             mLista.Add(profesor);
         }

@@ -13,7 +13,7 @@ namespace Ejercicio6
         private string mTelf;
         private List<string> mAsignaturas;
         private bool mTutor;
-        private string mCodigoCurso;
+        private int mCodigoCurso;
 
         public tProfesor()
         {
@@ -47,7 +47,7 @@ namespace Ejercicio6
             get { return mTutor; }
         }
 
-        public string CodigoAsignatura
+        public int CodigoCurso
         {
             set { mCodigoCurso = value; }
             get { return mCodigoCurso; }

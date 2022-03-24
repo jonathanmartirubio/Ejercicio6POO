@@ -45,6 +45,7 @@ namespace Ejercicio6
             fProfesor fProf = new fProfesor();
 
             fProf.Profesores = Profesores;
+            fProf.Cursos = Cursos;
             fProf.ShowDialog();
         }
     }
