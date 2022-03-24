@@ -19,15 +19,15 @@ namespace Ejercicio6
         }
 
         public tListaProfesores Profesores;
+        public tListadeCursos Cursos;
 
         private void bAnyadirProfesor_Click(object sender, EventArgs e)
         {
             string nombre, dni, telf;
-            string asignatura;
+            int curso;
+            bool existecurso;
             DialogResult estutor;
             bool tutor;
-
-            asignatura = "";
 
             nombre = Interaction.InputBox("Introduce el nombre: ", "Añadir Profesor");
             dni = Interaction.InputBox("Introduce el dni:", "Añadir Profesor");
@@ -36,15 +36,21 @@ namespace Ejercicio6
             if (estutor == DialogResult.Yes)
             {
                 tutor = true;
-                asignatura = Interaction.InputBox("Introduce el código de la Asignatura en la que es tutor:", "Añadir Profesor");
             }
             else
             {
                 tutor = false;
             }
-            
-
-            Profesores.AnyadirProfesor(nombre, dni, telf, tutor, asignatura);
+            curso = int.Parse(Interaction.InputBox("Introduce el código del curso en el que es tutor:", "Añadir Profesor"));
+            existecurso = Cursos.ExisteCurso(curso);
+            if (!existecurso)
+            {
+                MessageBox.Show("El curso introducido no existe.");
+            }
+            else
+            {
+                Profesores.AnyadirProfesor(nombre, dni, telf, tutor, curso);
+            }
         }
 
         private void bEliminarProfesor_Click(object sender, EventArgs e)
